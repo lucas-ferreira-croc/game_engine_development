@@ -1,5 +1,7 @@
 #include <iostream>
-#include "vectors/vector3D.h"
+//#include "vectors/vector3D.h"
+#include "vectors/vector4D.h"
+#include "matrices/matrix3D.h"
 
 int main(){
   Vector3D v(3.7f, 5.3f, 7.5f);
@@ -28,9 +30,18 @@ int main(){
   std::cout << x[0] << " " << x[1] << " " << x[2] << std::endl;
   std::cout << v[0] << " " << v[1] << " " << v[2] << std::endl;
 
-  v = Normalize(v);
-  x = Normalize(x);
+  //v = Normalize(v);
+  //x = Normalize(x);
 
   std::cout << Magnitude(v) << std::endl;
   std::cout << Magnitude(x) << std::endl;
+
+  Matrix3D m_one(1.0f, 2.0f, 3.0f,
+                 4.0f, 5.0f, 6.0f,
+                 7.0f, 8.0f, 9.0f);
+
+  Vector3D c(8.0f, 9.0f, 10.0f);
+  Matrix3D m_two(v, x, c);
+
+  Vector4D(1.0f, 2.0f, 3.0f, 4.0f);
 }
