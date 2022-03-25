@@ -64,23 +64,23 @@ public:
 
 inline Vector4D operator*(const Vector4D& v, float s)
 {
-    return { v.get_x() * s, v.get_y() * s, v.get_z() * s, v.get_w() * s };
+    return Vector4D(v.get_x() * s, v.get_y() * s, v.get_z() * s, v.get_w() * s);
 }
 
 inline Vector4D operator / (const Vector4D& v, float s)
 {
     s = 1.0f / s;
-    return { v.get_x() * s, v.get_y() * s, v.get_z() * s, v.get_w() * s };
+    return Vector4D(v.get_x() * s, v.get_y() * s, v.get_z() * s, v.get_w() * s );
 }
 
 inline Vector4D operator -(const Vector4D& v)
 {
-    return { -v.get_x(), -v.get_y(), -v.get_z(), -v.get_w() };
+    return Vector4D(-v.get_x(), -v.get_y(), -v.get_z(), -v.get_w());
 }
 
 inline float Magnitude(const Vector4D& v)
 {
-    return (sqrt(v.get_x() * v.get_x() + v.get_y() * v.get_y() + v.get_z() * v.get_z(), v.get_w() * v.get_w()));
+    return (sqrt(v.get_x() * v.get_x() + v.get_y() * v.get_y() + v.get_z() * v.get_z() + v.get_w() * v.get_w()));
 }
 
 inline Vector4D Normalize(const Vector4D& v)
@@ -88,13 +88,13 @@ inline Vector4D Normalize(const Vector4D& v)
     return v / Magnitude(v);
 }
 
-inline Vector4D operator + (const Vector4& a, const Vector4D& b)
+inline Vector4D operator + (const Vector4D& a, const Vector4D& b)
 {
-    return {a.get_x() + b.get_x(), a.get_y() + b.get_y(), a.get_z() + b.get_z(), a.get_w() + a.get_w() };
+    return Vector4D(a.get_x() + b.get_x(), a.get_y() + b.get_y(), a.get_z() + b.get_z(), a.get_w() + a.get_w());
 }
         
 
 inline Vector4D operator - (const Vector4D& a, const Vector4D& b)
 {
-    return {a.get_x() - b.get_x(), a.get_y() - b.get_y(), a.get_z() - b.get_z(), a.get_w() - b.get_w() };
-}c
+    return Vector4D(a.get_x() - b.get_x(), a.get_y() - b.get_y(), a.get_z() - b.get_z(), a.get_w() - b.get_w());
+}
