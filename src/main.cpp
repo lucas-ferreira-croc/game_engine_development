@@ -44,4 +44,13 @@ int main(){
   Matrix3D m_two(v, x, c);
 
   Vector4D(1.0f, 2.0f, 3.0f, 4.0f);
+
+  Vector3D test = m_one[0];
+  std::cout << test[0] << " " << test[1] << " " << test[2] << std::endl;
+
+ m_one = m_one * m_two;
+
+ Vector3D matrix_multiplication_vector = m_one * test;
+
+  std::cout << matrix_multiplication_vector[0] << " " << matrix_multiplication_vector[1] << " " << matrix_multiplication_vector[2] << std::endl; 
 }

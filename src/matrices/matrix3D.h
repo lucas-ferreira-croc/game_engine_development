@@ -47,3 +47,28 @@ public:
     }
 
 };
+
+
+  Matrix3D operator *(const Matrix3D& A, const Matrix3D& B)
+  {
+      return (Matrix3D (A(0,0) * B(0,0) + A(0,1) * B (1,0) + A(0,2) * B(2,0),
+                        A(0,0) * B(0,1) + A(0,1) * B (1,1) + A(0,2) * B(2,1),
+                        A(0,0) * B(0,2) + A(0,1) * B (1,2) + A(0,2) * B(2,2),
+
+                        A(1,0) * B(0,0) + A(1,1) * B(1,0) + A(1,2) * B(2,0),
+                        A(1,0) * B(0,1) + A(1,1) * B(1,1) + A(1,2) * B(2,1),
+                        A(1,0) * B(0,2) + A(1,1) * B(1,2) + A(1,2) * B(2,2), 
+
+                        A(2,0) * B(0,0) + A(2,1) * B(1,0) + A(2,2) * B(2,0),
+                        A(2,0) * B(0,1) + A(2,1) * B(1,1) + A(2,2) * B(2,1),
+                        A(2,0) * B(0,2) + A(2,1) * B(1,2) + A(2,2) * B(2,2)));
+  }
+
+  Vector3D operator * (const Matrix3D& A, const Vector3D& v)
+  {
+      return (Vector3D(A(0,0) * v.get_x() + A(0,1) * v.get_y() + A(0,2) * v.get_z(),
+                       A(1,0) * v.get_x() + A(1,1) * v.get_y() + A(1,2) * v.get_z(),
+                       A(2,0) * v.get_x() + A(2,1) * v.get_y() + A(2,2) * v.get_z()
+                       ));
+  }
+
