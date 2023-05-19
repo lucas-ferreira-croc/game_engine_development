@@ -72,6 +72,40 @@ public:
         return *this;
     }
 
+    vector3D& operator += (const vector3D& vec_b)
+    {
+        this->x += vec_b.x;
+        this->y += vec_b.y;
+        this->z += vec_b.z;
+        return *this;
+    }
+
+
+    vector3D& operator + (const vector3D& vec_b)
+    {
+        this->x += vec_b.x;
+        this->y += vec_b.y;
+        this->z += vec_b.z;
+        return *this;
+    }
+
+    vector3D& operator -= (const vector3D& vec_b)
+    {
+        this->x -= vec_b.x;
+        this->y -= vec_b.y;
+        this->z -= vec_b.z;
+        return *this;
+    }
+
+    vector3D& operator - (const vector3D& vec_b)
+    {
+        this->x -= vec_b.x;
+        this->y -= vec_b.y;
+        this->z -= vec_b.z;
+        return *this;
+    }
+
+
     float Magnitude()
     {
         return sqrt(this->x * this->x + this->y * this->y + this->z * this->z);

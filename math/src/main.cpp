@@ -23,4 +23,19 @@ int main(){
     vec = -vec;
     vec.print();
     std::cout << vec.Magnitude() << std::endl;
+
+    vector3D vec_a = vector3D(1.0f, 2.0f, 3.0f);
+    vector3D vec_b = vector3D(2.0f, 3.0f, 4.0f);
+
+    vec_a += vec_b;
+    vec_a.print();
+
+    vec_a = vec_a + vec_b;
+    vec_a.print();
+
+    vec_a -= vec_b;
+    vec_a.print();
+
+    vec_a = vec_a - vec_b;
+    vec_a.print();
 }
