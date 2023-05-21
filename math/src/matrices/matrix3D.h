@@ -56,6 +56,64 @@ public:
         return (*reinterpret_cast<const vector3D*>(n[j]));
     }
 
+    matrix3D operator *= (const matrix3D& b)
+    {
+                        // AB[0][0]
+        return  matrix3D(
+                        (*this)(0,0) * b(0,0) + (*this)(0,1) * b(1,0) + (*this)(0,2) * b(2,0),
+                        // AB[0][1]
+                        (*this)(0,0) * b(0,1) + (*this)(0,1) * b(1,1) + (*this)(0,2) * b(2,1),
+                        //AB[0][2]
+                        (*this)(0,0) * b(0,2) + (*this)(0,1) * b(1,2) + (*this)(0,2) * b(2,2),
+                        //AB[1][0]
+                        (*this)(1,0) * b(0,0) + (*this)(1,1) * b(1,0) + (*this)(1,2) * b(2,0),
+                        //AB[1][1]
+                        (*this)(1,0) * b(0,1) + (*this)(1,1) * b(1,1) + (*this)(1,2) * b(2,1),
+                        //AB[1][2]
+                        (*this)(1,0) * b(0,2) + (*this)(1,1) * b(1,2) + (*this)(1,2) * b(2,2),
+                        //AB[2][0]
+                        (*this)(2,0) * b(0,0) + (*this)(2,1) * b(1,0) + (*this)(2,2) * b(2,0),
+                        //AB[2][1]
+                        (*this)(2,0) * b(0,1) + (*this)(2,1) * b(1,1) + (*this)(2,2) * b(2,1),
+                        //AB[2][2]
+                        (*this)(2,0) * b(0,2) + (*this)(2,1) * b(1,2) + (*this)(2,2) * b(2,2)
+        );
+    }
+
+
+    matrix3D operator * (const matrix3D& b)
+    {
+                        // AB[0][0]
+        return  matrix3D(
+                        (*this)(0,0) * b(0,0) + (*this)(0,1) * b(1,0) + (*this)(0,2) * b(2,0),
+                        // AB[0][1]
+                        (*this)(0,0) * b(0,1) + (*this)(0,1) * b(1,1) + (*this)(0,2) * b(2,1),
+                        //AB[0][2]
+                        (*this)(0,0) * b(0,2) + (*this)(0,1) * b(1,2) + (*this)(0,2) * b(2,2),
+                        //AB[1][0]
+                        (*this)(1,0) * b(0,0) + (*this)(1,1) * b(1,0) + (*this)(1,2) * b(2,0),
+                        //AB[1][1]
+                        (*this)(1,0) * b(0,1) + (*this)(1,1) * b(1,1) + (*this)(1,2) * b(2,1),
+                        //AB[1][2]
+                        (*this)(1,0) * b(0,2) + (*this)(1,1) * b(1,2) + (*this)(1,2) * b(2,2),
+                        //AB[2][0]
+                        (*this)(2,0) * b(0,0) + (*this)(2,1) * b(1,0) + (*this)(2,2) * b(2,0),
+                        //AB[2][1]
+                        (*this)(2,0) * b(0,1) + (*this)(2,1) * b(1,1) + (*this)(2,2) * b(2,1),
+                        //AB[2][2]
+                        (*this)(2,0) * b(0,2) + (*this)(2,1) * b(1,2) + (*this)(2,2) * b(2,2)
+        );
+    }
+
+    vector3D operator * (const vector3D& v)
+    {
+        return vector3D(
+            (*this)(0, 0) * v.x + (*this)(0,1) * v.y + (*this)(0, 2) * v.z,
+            (*this)(1, 0) * v.x + (*this)(1,1) * v.y + (*this)(1, 2) * v.z,
+            (*this)(2, 0) * v.x + (*this)(2,1) * v.y + (*this)(2, 2) * v.z
+        );
+    }
+
     void print()
     {
         for(int i = 0; i < 3; i++)
