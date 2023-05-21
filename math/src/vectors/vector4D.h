@@ -1,68 +1,72 @@
 #include <iostream>
 #include <cmath>
-#include <stdexcept>
 
-class vector3D
+class vector4D
 {
 public:
     float x;
     float y;
     float z;
+    float w;
 
-    vector3D() = default;
+    vector4D() = default;
 
-    vector3D(float a, float b, float c)
+    vector4D(float a, float b, float c, float d)
     {
         x = a;
         y = b;
         z = c;
+        w = d;
     }
 
     float& operator [](int i)
     {
-        if(i < 0 || i > 2){
-            throw std::out_of_range("please, use a valid range, for vector3D, it's only acceptable numbers between 0 and 2");
+         if(i < 0 || i > 3){
+            throw std::out_of_range("please, use a valid range, for vector3D, it's only acceptable numbers between 0 and 3");
         }
-
         return ((&x)[i]);
     }
 
     const float& operator [] (int i) const
     {
-        if(i < 0 || i > 2){
-            throw std::out_of_range("please, use a valid range, for vector3D, it's only acceptable numbers between 0 and 2");
+        if(i < 0 || i > 3){
+            throw std::out_of_range("please, use a valid range, for vector3D, it's only acceptable numbers between 0 and 3");
         }
         return ((&x)[i]);
     }
 
-    vector3D& operator *= (float s)
+    vector4D& operator *= (float s)
     {
         this->x *= s;
         this->y *= s;
         this->z *= s;
+        this->w *= s;
 
         return *this;
     }
 
-    vector3D& operator * (float s)
+    vector4D& operator * (float s)
     {
         this->x *= s;
         this->y *= s;
         this->z *= s;
+        this->w *= s;
+
         return *this;
     }
 
-    vector3D& operator /= (float s)
+    vector4D& operator /= (float s)
     {
         s = 1.0f / s;
         this->x *= s;
         this->y *= s;
         this->z *= s;
+        this->w *- s;
 
         return *this;
     }    
 
-    vector3D& operator / (float s)
+    vector4D& operator / (float s)
     {
         s = 1.0f / s;
         this->x *= s;
@@ -72,44 +76,54 @@ public:
         return *this;
     }
 
-    vector3D& operator -()
+    vector4D& operator -()
     {
         this->x = -this->x;
         this->y = -this->y;
         this->z = -this->z;
+        this->w = -this->w;
+
         return *this;
     }
 
-    vector3D& operator += (const vector3D& vec_b)
+    vector4D& operator += (const vector4D& vec_b)
     {
         this->x += vec_b.x;
         this->y += vec_b.y;
         this->z += vec_b.z;
+        this->w += vec_b.w;
+
         return *this;
     }
 
 
-    vector3D& operator + (const vector3D& vec_b)
+    vector4D& operator + (const vector4D& vec_b)
     {
         this->x += vec_b.x;
         this->y += vec_b.y;
         this->z += vec_b.z;
+        this->w += vec_b.w;
+
         return *this;
     }
 
-    vector3D& operator -= (const vector3D& vec_b)
+    vector4D& operator -= (const vector4D& vec_b)
     {
         this->x -= vec_b.x;
         this->y -= vec_b.y;
         this->z -= vec_b.z;
+        this->w -= vec_b.w;
+
         return *this;
     }
 
-    vector3D& operator - (const vector3D& vec_b)
+    vector4D& operator - (const vector4D& vec_b)
     {
         this->x -= vec_b.x;
         this->y -= vec_b.y;
         this->z -= vec_b.z;
+        this->w -= vec_b.w;
+
         return *this;
     }
 
@@ -119,7 +133,7 @@ public:
         return sqrt(this->x * this->x + this->y * this->y + this->z * this->z);
     }
 
-    vector3D& Normalize()
+    vector4D& Normalize()
     {
         return (*this / Magnitude());
     }
@@ -129,5 +143,6 @@ public:
         std::cout << "x = " << x << std::endl;
         std::cout << "y = " << y << std::endl;
         std::cout << "z = " << z << std::endl;
+        std::cout << "w = " << w << std::endl;
     }
 };
