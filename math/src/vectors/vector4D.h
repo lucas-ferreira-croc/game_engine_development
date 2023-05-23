@@ -138,6 +138,10 @@ public:
         return (*this / Magnitude());
     }
 
+    float operator * (const vector4D& vec_b)
+    {
+        return (this->x * vec_b.x + this->y * vec_b.y + this->z * vec_b.z + this->w * vec_b.z);
+    }
     void print()
     {
         std::cout << "x = " << x << std::endl;

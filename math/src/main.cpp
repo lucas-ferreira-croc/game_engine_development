@@ -66,5 +66,8 @@ int main(){
         std::cout << m2(3, 0);
     */
 
-
+   float dot_a_a = vec_a * vec_a;
+   float dot_a_b = vec_a * vec_b;
+   std::cout << "dot_a_a: " << dot_a_a << std::endl;
+   std::cout << "dot_a_b: " << dot_a_b << std::endl;
 }
