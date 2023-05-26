@@ -128,6 +128,14 @@ public:
     {
         return (this->x * vec_b.x + this->y * vec_b.y + this->z * vec_b.z);
     }
+
+    vector3D Cross(const vector3D& vec_b)
+    {
+        return vector3D(this->y * vec_b.z - this->z * vec_b.y,
+                        this->z * vec_b.x - this->x * vec_b.z,
+                        this->x - vec_b.y - this->y * vec_b.x
+                    );
+    }
     void print()
     {
         std::cout << "x = " << x << std::endl;
